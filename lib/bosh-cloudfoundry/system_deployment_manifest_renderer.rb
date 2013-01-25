@@ -180,9 +180,9 @@ class Bosh::CloudFoundry::SystemDeploymentManifestRenderer
           "nats",
           "router",
           "health_manager",
+          "debian_nfs_server",
           "cloud_controller",
-          # "debian_nfs_server",
-          # "serialization_data_server",
+          "serialization_data_server",
           "stager",
           "uaa",
           "vcap_redis"],
@@ -240,21 +240,21 @@ class Bosh::CloudFoundry::SystemDeploymentManifestRenderer
          "service_extension"=>{"service_lifecycle"=>{"max_upload_size"=>5}},
          "use_nginx"=>false},
        "postgresql_server"=>{"max_connections"=>30, "listen_address"=>"0.0.0.0"},
-       # "serialization_data_server"=>
-       #  {"upload_token"=>"TOKEN",
-       #   "use_nginx"=>false,
-       #   "upload_timeout"=>10,
-       #   "port"=>8090,
-       #   "upload_file_expire_time"=>600,
-       #   "purge_expired_interval"=>30},
+       "serialization_data_server"=>
+        {"upload_token"=>"TOKEN",
+         "use_nginx"=>false,
+         "upload_timeout"=>10,
+         "port"=>8090,
+         "upload_file_expire_time"=>600,
+         "purge_expired_interval"=>30},
        "service_lifecycle"=>
         {"download_url"=>core_ip,
          "mount_point"=>"/var/vcap/service_lifecycle",
          "tmp_dir"=>"/var/vcap/service_lifecycle/tmp_dir",
          "resque"=>
           {"host"=>core_ip, "port"=>3456, "password"=>common_password},
-         # "nfs_server"=>{"address"=>core_ip, "export_dir"=>"/cfsnapshot"},
-         # "serialization_data_server"=>[core_ip]
+         "nfs_server"=>{"address"=>core_ip, "export_dir"=>"/cfsnapshot"},
+         "serialization_data_server"=>[core_ip]
         },
        "stager"=>
         {"max_staging_duration"=>120,
