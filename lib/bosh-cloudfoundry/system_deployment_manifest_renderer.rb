@@ -247,8 +247,6 @@ class Bosh::CloudFoundry::SystemDeploymentManifestRenderer
          "port"=>8090,
          "upload_file_expire_time"=>600,
          "purge_expired_interval"=>30},
-       "nfs_server"=>
-        {"network"=>"default"},
        "service_lifecycle"=>
         {"download_url"=>core_ip,
          "mount_point"=>"/var/vcap/service_lifecycle",
