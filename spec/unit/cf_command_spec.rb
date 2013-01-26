@@ -146,9 +146,10 @@ describe Bosh::Cli::Command::Base do
 
       provider = Bosh::CloudFoundry::Providers::AWS.new
       ports = {
-        ssh: 22, http: 80, https: 433,
+        ssh: 22, http: 80, https: 433, nfs: 2049,
         postgres: 2544, resque: 3456,
-        nats: 4222, router: 8080, uaa: 8100
+        nats: 4222, router: 8080,
+        serialization_data_server: 8090, uaa: 8100
       }
       provider.should_receive(:create_security_group).with("cloudfoundry-production", ports)
       Bosh::CloudFoundry::Providers.should_receive(:for_bosh_provider_name).and_return(provider)
