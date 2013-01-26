@@ -483,11 +483,12 @@ module Bosh::Cli::Command
         ssh: 22,
         http: 80,
         https: 433,
+        nfs: 2049,
         postgres: 2544,
         resque: 3456,
         nats: 4222,
         router: 8080,
-        # TODO serialization_data_server: 8090, - if NFS enabled
+        serialization_data_server: 8090,
         uaa: 8100
       }
     end
